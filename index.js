@@ -17,14 +17,14 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-// app.post("/register", (req, res) => {
-//   //client의 회원가입 정보를 db에 넣기
-//   const user = new User(req.body);
-//   user.save((err, userInfo) => {
-//     if (err) return res.json({ success: false, err });
-//     return res.status(200).json({ success: true });
-//   });
-// });
+app.post("/register", (req, res) => {
+  //client의 회원가입 정보를 db에 넣기
+  const user = new User(req.body);
+  user.save((err, userInfo) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).json({ success: true });
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
